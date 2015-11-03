@@ -279,7 +279,7 @@ namespace Block_Breaker
                 
             }
 
-            if (BallPos.X < 0 || BallPos.X > 800)
+            if (BallPos.X < 0 || BallPos.X > 800 - Ball.Width)
             {
                 BallSpeed.X = -BallSpeed.X;
                 
