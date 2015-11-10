@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
@@ -26,6 +27,9 @@ namespace Block_Breaker
         SpriteFont Lives;
         int Numberlives = 5;
         int score;
+        SoundEffect PaddleBounce;
+        SoundEffect BlockBounce;
+
 
         public Game1()
         {
@@ -135,7 +139,11 @@ namespace Block_Breaker
             Paddle = Content.Load<Texture2D>("block breaker paddle");
             Block = Content.Load<Texture2D>("Breakout brick");
             Lives = Content.Load<SpriteFont>("Lives");
-            // TODO: use this.Content to load your game content here
+            PaddleBounce = Content.Load<SoundEffect>("PaddleBounce");
+            BlockBounce = Content.Load<SoundEffect>("BlockBounce");
+
+                
+                // TODO: use this.Content to load your game content here
         }
 
         /// <summary>
@@ -261,6 +269,7 @@ namespace Block_Breaker
             {
 
                 BallSpeed.Y = -BallSpeed.Y + 0.5f;
+                PaddleBounce.Play();
                
             }
 
@@ -268,6 +277,7 @@ namespace Block_Breaker
             {
 
                 BallSpeed.Y = -BallSpeed.Y - 0.5f;
+                PaddleBounce.Play();
                 
             }
 
@@ -309,6 +319,7 @@ namespace Block_Breaker
                         BallSpeed.Y = -BallSpeed.Y;
                         BricksPos.Remove(pos);
                         score++;
+                        BlockBounce.Play();
                         break;
                     }
 
@@ -351,7 +362,8 @@ namespace Block_Breaker
                  spriteBatch.DrawString(Lives, "You won, GG press [Esc] to exit",  new Vector2(200, 400), Color.White);
              }
 
-
+             PaddleBounce = Content.Load<SoundEffect>("PaddleBounce");
+             BlockBounce = Content.Load<SoundEffect>("BlockBounce");
 
 
             spriteBatch.End();

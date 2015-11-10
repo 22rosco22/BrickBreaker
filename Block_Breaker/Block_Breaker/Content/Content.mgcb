@@ -52,3 +52,15 @@
 /processorParam:TextureFormat=Compressed
 /build:Lives.spritefont
 
+#begin PaddleBounce.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:PaddleBounce.wav
+
+#begin BlockBounce.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:BlockBounce.wav
+
